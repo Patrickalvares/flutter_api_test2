@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_api_test2/data/models/post_model.dart';
 import 'package:flutter_api_test2/data/repositories/api_repository.dart';
@@ -14,6 +13,8 @@ class DioApiRepository implements ApiRepository {
   Future<PostModel?> getPost(int postId) async {
     try {
       final url = '$API_URL/posts/$postId';
+
+      await Future.delayed(const Duration(seconds: 2));
 
       final response = await _dio.get(url);
 
